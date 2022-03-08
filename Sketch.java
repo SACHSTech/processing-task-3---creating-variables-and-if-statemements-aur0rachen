@@ -1,6 +1,12 @@
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
+
+    float centerX = random(0, 400);
+    float centerY = random(0, 400);
+    float centerSize = random(25, 150);
+    float petalDistance = (float) (centerSize * 0.83); 
+    float petalSize = (float) (centerSize * 1.17);
 	
 	
   /**
@@ -23,13 +29,34 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+	
+    // top petal
+    stroke(240, 89, 229);
+    fill(255, 201, 251);
+    ellipse(centerX, centerY - petalDistance, petalSize, petalSize);
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+    // top right petal 
+    ellipse(centerX + petalDistance, centerY - (float) (petalDistance * 0.2), petalSize, petalSize);
+
+    // top left petal
+    ellipse(centerX - petalDistance, centerY - (float) (petalDistance * 0.2), petalSize, petalSize);
+
+    // bottom right petal
+    ellipse(centerX + (float) (petalDistance * 0.6), centerY + petalDistance, petalSize, petalSize);
+
+    // bottom left petal
+    ellipse(centerX - (float) (petalDistance * 0.6), centerY + petalDistance, petalSize, petalSize);
+  
+    // center petal
+    stroke(255, 202, 25);
+    fill(255, 236, 173);
+    ellipse(centerX, centerY, centerSize, centerSize);
+
+    // time
+    String strTime = (hour() + ":" + minute() + ":" + second());
+    fill (0);
+    text (strTime, 340, 390);
+ 
   }
   
   // define other methods down here.
