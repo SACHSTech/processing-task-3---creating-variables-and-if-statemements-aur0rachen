@@ -1,5 +1,10 @@
 import processing.core.PApplet;
 
+  /**
+  * Description: Prints out a flower at a random location, depending on the location the background will change color, shows current time
+  * @author: Aurora Chen
+  */
+
 public class Sketch extends PApplet {
 
     float centerX = random(0, 400);
@@ -8,19 +13,10 @@ public class Sketch extends PApplet {
     float petalDistance = (float) (centerSize * 0.83); 
     float petalSize = (float) (centerSize * 1.17);
 	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
   public void settings() {
-	// put your size call here
     size(400, 400);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
     // if the flower appears at the upper left or bottom right corners, the background will be green. If not, the background will be blue
     boolean isCorners = ((centerX <= 200) && (centerY <= 200)) || (centerX >= 200) && (centerY >= 200);
@@ -34,9 +30,6 @@ public class Sketch extends PApplet {
   
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
   public void draw() {
 	
     // top petal
@@ -68,6 +61,4 @@ public class Sketch extends PApplet {
     text (strTime, 320, 390);
  
   }
-  
-  // define other methods down here.
 }
