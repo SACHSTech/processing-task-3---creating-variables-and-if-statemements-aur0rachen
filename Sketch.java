@@ -22,7 +22,16 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(210, 255, 173);
+    // if the flower appears at the upper left or bottom right corners, the background will be green. If not, the background will be blue
+    boolean isCorners = ((centerX <= 200) && (centerY <= 200)) || (centerX >= 200) && (centerY >= 200);
+
+    if (isCorners){
+      background(210, 255, 173);
+    }
+    else {
+      background(158, 221, 255);
+    }
+  
   }
 
   /**
@@ -55,7 +64,8 @@ public class Sketch extends PApplet {
     // time
     String strTime = (hour() + ":" + minute() + ":" + second());
     fill (0);
-    text (strTime, 340, 390);
+    textSize(20);
+    text (strTime, 320, 390);
  
   }
   
